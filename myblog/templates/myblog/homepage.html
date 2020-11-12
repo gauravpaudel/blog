@@ -1,0 +1,100 @@
+{% extends 'myblog/base.html' %}
+
+    {% block content %}
+
+    !--Main Navigation-->  
+
+  <!--Main layout-->
+  <main class="mt-5 pt-5">
+    <div class="container">
+
+      
+
+      <!--Section: Cards-->
+      <section class="pt-3">
+
+          <!-- Heading & Description -->
+        <div class="wow fadeIn">
+          <!--Section heading-->
+          <h2 class="h1 text-center mb-5">What is DJ Vue?</h2>
+          <!--Section description-->
+          <p class="text-center">
+           A place where you can find content about web-development with mainly focus on Django and Vue.js in a beginner-friendly manner.</p>
+          <p class="text-center mb-5 pb-5">Different project ideas, tutorials with step-by-step guide in building full-stack application are uploaded regularly.</p>
+        </div>
+        <!-- usng lp -->
+        <hr class="mb-2">
+            {% for post in posts %}
+                
+                    <!--Grid row-->
+                    <div class="row mt-3">
+                    <!--Grid column-->
+                    <div class="col">
+                        <h3 class="mb-3 font-weight-bold dark-grey-text">
+                        <strong>{{ post.title }}</strong>
+                        </h3>
+                        <p class="grey-text">{{ post.body|truncatewords:15  }}</p>
+                        <a href="{% url 'post_detail' post.slug %}" class="btn btn-primary btn-md">Read More
+                        <i class="fas fa-play ml-2"></i>
+                        </a>
+                    </div>
+                    <!--Grid column-->
+
+                    </div>
+                    <!--Grid row-->
+
+                     <hr class="mb-5">
+                    
+            {% endfor %}    
+        <!--END LP-->
+
+
+        <!--Pagination-->
+        <nav class="d-flex justify-content-center wow fadeIn">
+          <ul class="pagination pg-blue">
+
+            <!--Arrow left-->
+            
+            {% if page_obj.has_previous %}
+
+            <li class="page-item">
+                <a class="page-link" href="?page={{page_obj.previous_page_number}}" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                  <span class="sr-only">Previous</span>
+                </a>
+              </li>
+
+            {% endif %}
+
+           
+
+            <li class="page-item active">
+              <a class="page-link" href="#"> {{page_obj.number}}
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+
+           
+            {% if page_obj.has_next %}
+
+            <li class="page-item">
+              <a class="page-link" href="?page={{page_obj.next_page_number}}" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+              </a>
+            </li>
+
+            {% endif %}
+
+          </ul>
+        </nav>
+        <!--Pagination-->
+
+      </section>
+      <!--Section: Cards-->
+
+    </div>
+  </main>
+  <!--Main layout-->
+
+    {% endblock  %}

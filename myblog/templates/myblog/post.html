@@ -1,0 +1,103 @@
+{% extends 'myblog/base.html' %}    
+{% load static %}
+{% load disqus_tags %}
+
+{% block content %}  
+
+    <!--Main layout-->
+    <main class="mt-5 pt-5">
+      <div class="container">
+
+        <!--Section: Post-->
+        <section class="mt-4">
+
+          <!--Grid row-->
+          <div class="row">
+
+            <!--Grid column-->
+            <div class="col mb-5">
+
+              <!--Card-->
+              <div class="card mb-4">
+
+                <!--Card content-->
+                <div class="card-body">
+                  
+                  <p class="h5"> 
+              
+                      <i class="fab fa-slack-hash blue-text"></i>  <strong> {{ post.title }} </strong>
+                 </p>
+
+                 <hr class="my-4">
+                
+                  <p>
+                   
+                    {{ post.body|linebreaksbr }}
+                   
+                  </p>
+
+                </div>
+
+              </div>
+              <!--/.Card-->
+              
+              <div class="card mb-4 wow fadeIn">
+
+                <div class="card-header font-weight-bold">
+                  <span>About author</span>
+                  <span class="pull-right">
+                    <a href="https://www.facebook.com/grv070/" target="_blank">
+                      <i class="fab fa-facebook-f mr-2"></i>
+                    </a>
+          
+                    <a href="https://github.com/gauravpaudel/" target="_blank">
+                      <i class="fab fa-github mr-2"></i>
+                    </a>
+
+                    <a href="https://www.instagram.com/grv070/" target="_blank">
+                      <i class="fab fa-instagram mr-2"></i>
+                    </a>
+
+                  </span>
+                </div>
+
+                <!--Card content-->
+
+                <div class="card-body">
+
+                  <div class="media d-block d-md-flex mt-3">
+                    <img class="d-flex mb-3 mx-auto z-depth-1" src="{% static 'img/author.png' %}"
+                      alt="Generic placeholder image" style="width: 100px;">
+                    <div class="media-body text-center text-md-left ml-md-3 ml-0">
+                      <h5 class="mt-0 font-weight-bold">
+                        Gaurav Paudel 
+                      </h5> 
+                      <p> 
+                        As a Python developer, Gaurav has about two years of web development experience using Django. He's also developed the front end with both Bulma/Tailwind as well as Vue.js single-page apps. In 2019, a career highlight was Gaurav using Django and Vue.js to build a multi-vendor eCommerce platform.
+                      </p>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+              
+              <!-- disquss -->
+              
+              
+              {% disqus_show_comments 'blog-paudelgaurav-com-np' %}
+
+            </div>
+            <!--Grid column-->
+          
+          </div>
+          <!--Grid row-->
+
+        </section>  
+        
+
+      </div>
+    </main>
+    <!--Main layout-->
+  
+  {% endblock %}
