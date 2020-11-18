@@ -27,6 +27,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+
+    'django_summernote',   
+    
     'myblog',
     'disqus',
 ]
@@ -113,7 +116,13 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS  =  [os.path.join(BASE_DIR , 'static')]
 
+#media
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 #discus for commetns
 # 

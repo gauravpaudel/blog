@@ -33,7 +33,7 @@
                         <h3 class="mb-3 font-weight-bold dark-grey-text">
                         <strong>{{ post.title }}</strong>
                         </h3>
-                        <p class="grey-text">{{ post.body|truncatewords:15  }}</p>
+                        <p class="grey-text">{{ post.body|safe|truncatewords:15  }}</p>
                         <a href="{% url 'post_detail' post.slug %}" class="btn btn-primary btn-md">Read More
                         <i class="fas fa-play ml-2"></i>
                         </a>
